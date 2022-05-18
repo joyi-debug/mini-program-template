@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "del dist\\*.* /s /f /q && del dist\\* /s /f /q  && webpack --config webpack.config.js"
+    "start": "del dist\\*.* /s /f /q && webpack --config webpack.config.js"
   },
   "author": "lzy",
   "license": "ISC",

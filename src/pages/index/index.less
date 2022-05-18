@@ -1,6 +1,42 @@
-.outter {
+//index.less文件
+.container{
+  height: 100%;
   width: 100%;
-  .inner {
-    width: 300rpx;
+  font-weight: 800;
+  .base-panel{
+    width: 100%;
+    .base-label{
+      padding-left: 40rpx;
+    }
+    .base-num-input{
+      border-bottom: 1px dotted wheat;
+      text-align: right;
+    }
+  }
+  .img{
+    width: 150rpx;
+    height: 150rpx;
+    margin-left: 30rpx;
+  }
+  .money-panel{
+      display: flex;
+      align-items: center;
+      padding-left: 10rpx;
+  }
+  .unit-label{
+    display: inline-block;
+    margin-right: 50rpx;
+    margin-left: 40rpx;
+  }
+  .right-panel{
+    width: 180rpx;
+    position: absolute;
+    right: 30rpx;
+  }
+  .money-num,.description-label{
+    float: right;
+  }
+  .top-divider{
+    border-top: 1px dotted wheat;
   }
 }

@@ -1,6 +1,30 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="base-panel">
+    <!-- 基础货币部分 -->
+    <text class="base-label">基础货币</text>
+    <button size="mini" style="padding: 0 16px;margin-left:100rpx;;" bindtap="onClickSwitchBaseMoney">切换</button>
+    <view class="money-panel">
+      <image class="img" src="{{'../../imgs/'+baseExchangeItem.key+'.png'}}" />
+      <text class="unit-label">{{baseExchangeItem.key}}</text>
+      <view class="right-panel">
+        <input class="money-num base-num-input" bindinput="onBaseNumChange" value="{{baseExchangeItem.baseNum}}" />
+        <text class="description-label">{{baseExchangeItem.name}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 目标货币部分 -->
+  <view class="exchange-list">
+    <view wx:for="{{exchangeList}}" class="money-panel top-divider">
+      <image class="img" mode="aspectFill" src="{{'../../imgs/'+item.key+'.png'}}" />
+      <text class="unit-label">{{item.key}}</text>
+      <!-- 右侧数目和单位进行上下排布 -->
+      <view class="right-panel">
+        <text class="money-num">{{item.baseNum}}</text>
+        <text class="description-label">{{item.name}}</text>
+      </view>
+    </view>
   </view>
 </view>
+
+
