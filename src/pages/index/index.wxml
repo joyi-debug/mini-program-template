@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<!-- 引用util.wxs文件 -->
+<wxs src="./util.wxs" module="util" />
 <view class="container">
   <view class="base-panel">
     <!-- 基础货币部分 -->
@@ -8,7 +10,7 @@
       <image class="img" src="{{'../../imgs/'+baseExchangeItem.key+'.png'}}" />
       <text class="unit-label">{{baseExchangeItem.key}}</text>
       <view class="right-panel">
-        <input class="money-num base-num-input" bindinput="onBaseNumChange" value="{{baseExchangeItem.baseNum}}" />
+        <input class="money-num base-num-input" bindinput="onBaseNumChange" value="{{moneyNum}}" />
         <text class="description-label">{{baseExchangeItem.name}}</text>
       </view>
     </view>
@@ -20,7 +22,7 @@
       <text class="unit-label">{{item.key}}</text>
       <!-- 右侧数目和单位进行上下排布 -->
       <view class="right-panel">
-        <text class="money-num">{{item.baseNum}}</text>
+        <text class="money-num">{{util.formatNum(item.baseNum/baseExchangeItem.baseNum*moneyNum)}}</text>
         <text class="description-label">{{item.name}}</text>
       </view>
     </view>

@@ -57,6 +57,10 @@ module.exports = {
           to: "./",
         },
         {
+          from: "**/*.wxs",
+          to: "./",
+        },
+        {
           from: "**/*.less",
           to: "./",
           transform(content, path) {

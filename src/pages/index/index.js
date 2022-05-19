@@ -7,6 +7,7 @@ Page({
   data: {
     exchangeList: [], //用于下方列表展示
     baseMoneyKey: "CNY", //保存当前基础货币的key值
+    moneyNum: 100,
     baseExchangeItem: {
       //保存当前基础货币的其他信息
       key: app.baseMoneyKey,
@@ -49,6 +50,11 @@ Page({
     this.onLoad();
     this.setData({
       baseExchangeItem: baseExchangeItem,
+    });
+  },
+  onBaseNumChange(event) {
+    this.setData({
+      moneyNum: event.detail.value,
     });
   },
 });
