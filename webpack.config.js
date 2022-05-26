@@ -14,9 +14,28 @@ module.exports = {
   //小程序的启动文件app.js
   output: {
     path: path.join(__dirname, "dist"),
+    /* clean: true, */
   },
   //output配置为dist目录，这样最终代码输出会出现在项目根目录的dist文件夹中，在启动小程序开发IDE预览效果
   //时选择dist目录即可
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        include: path.resolve(__dirname, "./src"),
+        use: {
+          loader: "babel-loader",
+          options: {
+            // presets: ["@babel/preset-env"],
+            cacheDirectory: true, //开启babel缓存
+            cacheCompression: false, //关闭缓存文件压缩
+            plugins: ["@babel/plugin-transform-runtime"], //减小体积
+          },
+        },
+      },
+    ],
+  },
+
   plugins: [
     new CopyWebpackPlugin(
       [
@@ -27,7 +46,7 @@ module.exports = {
           transform(content, path) {
             const newCode = babel.transformSync(content, {
               babelrc: true,
-              presets: ["@babel/env"],
+              presets: ["@babel/preset-env"],
             }).code;
             return Promise.resolve(newCode.toString());
           },
